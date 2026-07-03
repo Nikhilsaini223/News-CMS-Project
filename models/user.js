@@ -24,9 +24,9 @@ const userSchema = new mongoose.Schema(
         }
     })
 
-    userSchema.pre('save', async function(next) {
-    if (this.isModified('password')) {
-        this.password = await bcrypt.hash(this.password, 12);
+    userSchema.pre('save', async function(next) {  // Pre-save hook to hash the password before saving the user document
+    if (this.isModified('password')) {             // Check if the password field has been modified (e.g., during user creation or password update)
+        this.password = await bcrypt.hash(this.password, 12);  // Hash the password using bcrypt with a salt round of 12 and store the hashed password in the user document
     }
     next();
    });

@@ -1,0 +1,59 @@
+/* Admin - Comments specific styles */
+.content-table th,
+.content-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.content-table thead th {
+  background: #f8fafc;
+}
+.status-select {
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #fff;
+}
+.status-select option[selected] {
+  font-weight: 600;
+}
+
+/* Status labels (for possible status badges) */
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #fff;
+}
+.status-approved {
+  background: #28a745;
+}
+.status-pending {
+  background: #ffc107;
+  color: #212529;
+}
+.status-rejected {
+  background: #dc3545;
+}
+
+/* Actions cell */
+.content-table .edit {
+  min-width: 140px;
+}
+
+/* Small screens */
+@media (max-width: 700px) {
+  .content-table thead {
+    display: none;
+  }
+  .content-table tr {
+    display: block;
+    margin-bottom: 12px;
+  }
+  .content-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+}

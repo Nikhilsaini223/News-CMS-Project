@@ -1,0 +1,79 @@
+/* Admin - Categories specific styles */
+.admin-content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.add-new {
+  background: var(--primary);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.add-new:hover {
+  opacity: 0.95;
+}
+
+/* Category table */
+.content-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.content-table th,
+.content-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.content-table thead th {
+  background: #f8fafc;
+}
+.content-table .id {
+  width: 60px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Form styles (reuse admin variables) */
+.form-card {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+.form-group input[type="text"],
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+/* Buttons */
+input[type="submit"],
+button {
+  background: var(--primary);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: none;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .content-table thead {
+    display: none;
+  }
+  .content-table tr {
+    display: block;
+    margin-bottom: 12px;
+  }
+  .content-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+}

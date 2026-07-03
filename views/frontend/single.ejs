@@ -1,49 +1,65 @@
+<!-- page-specific stylesheet -->
+<link rel="stylesheet" href="/css/frontend.css" />
 <!-- post-container -->
-        <div class="post-container">
-            <div class="post-content single-post">
-                <h3>Lorem ipsum dolor sit amet, consectetur</h3>
-                <div class="post-information">
-                    <span><i class="fa fa-tags" aria-hidden="true"></i>Html</span>
-                    <span><i class="fa fa-user" aria-hidden="true"></i><a href='author.html'>Admin</a></span>
-                    <span><i class="fa fa-calendar" aria-hidden="true"></i>03 June, 2026</span>
-                </div>
-                <img class="single-feature-image" src="images/post_1.jpg" alt=""/>
-                <p class="description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                </p>
-            </div>
-        </div>
-        <!-- /post-container -->
+<div class="post-container">
+  <div class="post-content single-post">
+    <h3>Lorem ipsum dolor sit amet, consectetur</h3>
+    <div class="post-information">
+      <span><i class="fa fa-tags" aria-hidden="true"></i>Html</span>
+      <span
+        ><i class="fa fa-user" aria-hidden="true"></i
+        ><a href="author.html">Admin</a></span
+      >
+      <span
+        ><i class="fa fa-calendar" aria-hidden="true"></i>03 June, 2026</span
+      >
+    </div>
+    <img class="single-feature-image" src="images/post_1.jpg" alt="" />
+    <p class="description">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum
+    </p>
+  </div>
+</div>
+<!-- /post-container -->
 
-        <!-- Comments Section -->
-        <div class="comments-section">
-            <h3>Comments</h3>
- 
-            <!-- Comment Form -->
-            <div class="comment-form">
-                <form action="/article/1/comment" method="POST">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Comment</label>
-                        <textarea name="content" rows="3" required></textarea>
-                    </div>
-                    <button type="submit">Submit Comment</button>
-                </form>
-            </div>
- 
-            <!-- Display Comments -->
-            <div class="comments-list">
-                <div class="comment">
-                    <h6 class="comment-author">User Name</h6>
-                    <p class="comment-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam est laboriosam rerum saepe odit exercitationem earum sequi in ipsum culpa!</p>
-                    <small class="comment-date">Posted on 10-10-2020</small>
-                </div>
-            </div>
-        </div>
+<!-- Comments Section -->
+<div class="comments-section">
+  <h3>Comments</h3>
+
+  <!-- Comment Form -->
+  <div class="comment-form">
+    <form action="/article/1/comment" method="POST">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" required />
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label>Comment</label>
+        <textarea name="content" rows="3" required></textarea>
+      </div>
+      <button type="submit">Submit Comment</button>
+    </form>
+  </div>
+
+  <!-- Display Comments -->
+  <div class="comments-list">
+    <div class="comment">
+      <h6 class="comment-author">User Name</h6>
+      <p class="comment-text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam est
+        laboriosam rerum saepe odit exercitationem earum sequi in ipsum culpa!
+      </p>
+      <small class="comment-date">Posted on 10-10-2020</small>
+    </div>
+  </div>
+</div>

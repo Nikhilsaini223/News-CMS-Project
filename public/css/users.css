@@ -1,0 +1,86 @@
+/* Admin - Users specific styles */
+.admin-content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.add-new {
+  background: var(--primary);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.add-new:hover {
+  opacity: 0.95;
+}
+
+/* Users table */
+.content-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.content-table th,
+.content-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.content-table .id {
+  width: 60px;
+  text-align: center;
+  color: var(--muted);
+}
+.role-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #fff;
+}
+.role-admin {
+  background: #007bff;
+}
+.role-author {
+  background: #6c757d;
+}
+
+/* Form */
+.form-card {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+/* Actions */
+.content-table .edit a,
+.content-table .delete a {
+  padding: 6px 8px;
+  border-radius: 4px;
+}
+
+@media (max-width: 700px) {
+  .content-table thead {
+    display: none;
+  }
+  .content-table tr {
+    display: block;
+    margin-bottom: 12px;
+  }
+  .content-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+}

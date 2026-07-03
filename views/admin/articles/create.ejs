@@ -1,32 +1,39 @@
+<link rel="stylesheet" href="/css/articles.css" />
 <div id="admin-content">
-    <h1 class="admin-heading">Add New Article</h1>
+  <h1 class="admin-heading">Add New Article</h1>
 
-    <div class="form-card">
-        <h5 class="form-card-header">Add New Article</h5>
-        <div class="form-card-body">
-            <!-- Form -->
-            <form action="" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="article_title">Title</label>
-                    <input type="text" name="title" id="article_title" autocomplete="off" required>
-                </div>
-                <div class="form-group">
-                    <label for="summernote">Description</label>
-                    <textarea name="content" id="summernote" rows="5" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="article_category">Category</label>
-                    <select name="category" id="article_category">
-                        <option value="" selected>Select Category</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="article_image">Article image</label>
-                    <input type="file" name="image" id="article_image" required>
-                </div>
-                <input type="submit" name="submit" value="Save" required />
-            </form>
-            <!--/Form -->
+  <div class="form-card">
+    <h5 class="form-card-header">Add New Article</h5>
+    <div class="form-card-body">
+      <!-- Form -->
+      <form action="" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="article_title">Title</label>
+          <input
+            type="text"
+            name="title"
+            id="article_title"
+            autocomplete="off"
+            required
+          />
         </div>
+        <div class="form-group">
+          <label for="summernote">Description</label>
+          <textarea name="content" id="summernote" rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="article_category">Category</label>
+          <select name="category" id="article_category">
+            <option value="" selected>Select Category</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="article_image">Article image</label>
+          <input type="file" name="image" id="article_image" required />
+        </div>
+        <input type="submit" name="submit" value="Save" required />
+      </form>
+      <!--/Form -->
     </div>
+  </div>
 </div>

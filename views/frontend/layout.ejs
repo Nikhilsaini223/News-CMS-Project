@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>News</title>
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <!-- Custom stlylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- HEADER -->
+<div id="header">
+    <div>
+        <div>
+            <!-- LOGO -->
+            <div>
+                <a href="index.html" id="logo"><img src="images/news.jpg" alt="Logo" /></a>
+            </div>
+            <!-- /LOGO -->
+        </div>
+    </div>
+</div>
+<!-- /HEADER -->
+<!-- Menu Bar -->
+<div id="menu-bar">
+  <div>
+    <div>
+      <div>
+        <ul class='menu'>
+          <li><a href='index.ejs'>Home</a></li>
+          <li><a href='category.ejs'>Business</a></li>
+          <li><a href='category.ejs'>Entertainment</a></li>
+          <li><a href='category.ejs'>Sports</a></li>
+          <li><a href='category.ejs'>Politics</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Menu Bar -->
+
+  <div id="main-content">
+    <div>
+      <div>
+        <div>
+            <!-- post-container -->
+         <%- body %>
+            <!-- post-container -->
+        </div>
+        <!-- sidebar -->
+        <%- include('partials/sidebar') %>
+        <!-- /sidebar -->
+      </div>
+    </div>
+  </div>
+  <div id ="footer">
+      <div>
+          <div>
+              <div>
+                  <span>© Copyright 2026 News | Powered by Nikhil Saini</span>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>

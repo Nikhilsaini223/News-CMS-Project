@@ -5,12 +5,24 @@ const userModel = require('../models/user');
 const commentModel = require('../models/comments');
 
 // Controller functions for handling site-related requests
-const index = async (req, res) => { }
-const articleByCategories = async (req, res) => { }
-const singleArticle = async (req, res) => { }
-const search = async (req, res) => { }
-const author = async (req, res) => { }
-const addComment = async (req, res) => { }
+const index = async (req, res) => { 
+    res.render('frontend/index')
+}
+const articleByCategories = async (req, res) => { 
+    res.render('frontend/category')
+}
+const singleArticle = async (req, res) => { 
+    res.render('frontend/single')
+}
+const search = async (req, res) => { 
+    res.render('frontend/search')
+}
+const author = async (req, res) => { 
+    res.render('frontend/author')
+}
+const addComment = async (req, res) => { 
+   
+}
 
 module.exports = {
     index,

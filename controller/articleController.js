@@ -3,10 +3,16 @@ const newsModel = require('../models/news');
 const userModel = require('../models/user');
 
 // Controller functions for handling article-related requests
-const allArticle = async (req, res) => { }
-const addArticlePage = async (req, res) => { }
+const allArticle = async (req, res) => { 
+    res.render('admin/articles')
+}
+const addArticlePage = async (req, res) => { 
+    res.render('admin/articles/create')
+}
 const addArticle = async (req, res) => { }
-const updateArticlePage = async (req, res) => { }
+const updateArticlePage = async (req, res) => { 
+    res.render('admin/articles/update')
+}
 const updateArticle = async (req, res) => { }
 const deleteArticle = async (req, res) => { }
 

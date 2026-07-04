@@ -10,22 +10,21 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Frontend stylesheet -->
     <link rel="stylesheet" href="/css/frontend.css" />
   </head>
   <body>
     <!-- HEADER -->
     <div id="header">
-      <div>
-        <div>
-          <!-- LOGO -->
-          <div>
-            <a href="index.html" id="logo"
-              ><img src="images/news.jpg" alt="Logo"
-            /></a>
-          </div>
-          <!-- /LOGO -->
-        </div>
+      <div class="header-container">
+        <!-- LOGO -->
+        <a href="/admin/index" id="logo">
+          <img src="images/news.jpeg" alt="Logo" />
+        </a>
+        <!-- /LOGO -->
       </div>
     </div>
     <!-- /HEADER -->
@@ -48,18 +47,12 @@
     <!-- /Menu Bar -->
 
     <div id="main-content">
-      <div>
-        <div>
-          <div>
-            <!-- post-container -->
-            <%- body %>
-            <!-- post-container -->
-          </div>
-          <!-- sidebar -->
-          <%- include('partials/sidebar') %>
-          <!-- /sidebar -->
-        </div>
-      </div>
+      <!-- post-container -->
+      <%- body %>
+      <!-- post-container -->
+      <!-- sidebar -->
+      <%- include('../partials/sidebar') %>
+      <!-- /sidebar -->
     </div>
     <div id="footer">
       <div>

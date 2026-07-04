@@ -1,80 +1,152 @@
-/* Admin - Articles specific styles */
+/* Admin - Articles specific styles - Premium Soft & Elegant Theme */
 .admin-content-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
-}
-.add-new {
-  background: var(--primary);
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 4px;
-  text-decoration: none;
-}
-.add-new:hover {
-  opacity: 0.95;
+  margin-bottom: 24px;
 }
 
-/* Table tweaks */
+.add-new {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary);
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+}
+
+.add-new:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.25);
+  transform: translateY(-1px);
+  color: #fff;
+}
+
+/* Table Tweaks */
 .content-table .id {
-  width: 60px;
+  width: 70px;
   text-align: center;
   color: var(--muted);
+  font-weight: 600;
 }
-.content-table .edit a,
-.content-table .delete a {
-  font-size: 14px;
-}
+
 .content-table td,
 .content-table th {
   vertical-align: middle;
 }
 
-/* Pagination */
+/* Custom Pagination styles inside nav[aria-label] */
+nav[aria-label] {
+  margin-top: 24px;
+}
+
 nav[aria-label] ul {
   list-style: none;
   padding: 0;
   display: flex;
   gap: 8px;
+  justify-content: center;
 }
+
 nav[aria-label] a {
-  display: inline-block;
-  padding: 8px 10px;
-  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-main);
   border: 1px solid var(--border);
-  border-radius: 4px;
-  color: var(--muted);
+  background: var(--card);
+  transition: var(--transition);
+  text-decoration: none;
 }
-nav[aria-label] a[aria-current="page"],
+
 nav[aria-label] a:hover {
+  background: #f1f5f9;
+  border-color: var(--border-dark);
+  color: var(--primary);
+}
+
+nav[aria-label] a[aria-current="page"],
+nav[aria-label] a:hover[aria-current="page"] {
   background: var(--primary);
   color: #fff;
   border-color: var(--primary);
 }
 
-/* Form action button */
+/* Form Action Buttons */
 input[type="submit"],
 button[type="submit"] {
   background: var(--primary);
   color: #fff;
-  padding: 8px 12px;
-  border-radius: 4px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14.5px;
+  padding: 10px 24px;
+  border-radius: 30px;
   border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
 }
 
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Mobile responsive tables */
 @media (max-width: 700px) {
+  .content-table {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+  }
   .content-table thead {
     display: none;
   }
+  .content-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
   .content-table tr {
     display: block;
-    margin-bottom: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 12px;
+    box-shadow: var(--shadow-sm);
   }
   .content-table td {
     display: flex;
     justify-content: space-between;
-    padding: 8px;
+    align-items: center;
+    padding: 10px 8px;
     border-bottom: 1px solid var(--border);
+  }
+  .content-table tr td:last-child {
+    border-bottom: none;
+  }
+  .content-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-title);
+    font-size: 13px;
   }
 }

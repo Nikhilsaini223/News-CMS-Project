@@ -4,7 +4,9 @@ const mongoose = require("mongoose");
 const path = require("path");
 const expressLayouts = require("express-ejs-layouts");
 const expressSession = require("express-session");
+const cookieParser = require("cookie-parser");
 const connectFlash = require("connect-flash");
+const expressValidator = require("express-validator");
 
 require("dotenv").config();
 
@@ -12,6 +14,7 @@ require("dotenv").config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(cookieParser());
 app.use(expressLayouts);
 app.set("layout", "frontend/layout");
 

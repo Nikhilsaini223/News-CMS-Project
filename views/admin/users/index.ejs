@@ -2,10 +2,12 @@
 <div id="admin-content">
   <div class="admin-content-header">
     <h1 class="admin-heading"><i class="fa fa-users"></i> All Users</h1>
-    <a class="add-new" href="add-user.html">add user</a>
+    <a class="add-new" href="/admin/add-user">add user</a>
   </div>
 
-  <table class="content-table">
+  <div id="usersTable"></div>
+
+  <!--<table class="content-table">
     <thead>
       <tr>
         <th>S.No.</th>
@@ -66,9 +68,9 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
 
-  <nav>
+  <!--<nav>
     <ul>
       <li><a>Previous</a></li>
       <li><a href="#">1</a></li>
@@ -76,5 +78,66 @@
       <li><a href="#">3</a></li>
       <li><a href="#">Next</a></li>
     </ul>
-  </nav>
+  </nav>-->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/tabulator-tables@6.0.0/dist/js/tabulator.min.js"></script>
 </div>
+
+<script>
+
+  // Get the users data from the server-side and pass it to the client-side
+  const tableData = <%- JSON.stringify(users) %>
+
+  // Initialize Tabulator table
+  var table = new Tabulator("#usersTable", {
+      data: tableData,
+      layout: "fitColumns",
+      pagination: true,
+      paginationSize: 10,
+      paginationSizeSelector: [5, 10, 25, 50, 100],
+      columns: [
+          { title: "Full Name", field: "fullName", headerFilter: "input" },
+          { title: "User Name", field: "userName", headerFilter: "input" },
+          { title: "Role", field: "role", headerFilter: "input" },
+          {
+              title: "Actions",
+              formatter: function (cell, formatterParams, onRendered) {
+                  return `
+                      <a href="/admin/update-user/${cell.getData()._id}" class="btn btn-sm btn-success">Edit</a>
+                      <button class="btn btn-sm btn-danger delete-user" onclick="deleteUser('${cell.getData()._id}')">Delete</button>
+                  `;
+              }
+          }
+      ]
+  });
+
+// Delete user function
+async function deleteUser(id){
+  try {
+    if (confirm("Are you sure you want to delete this user?")) {
+      const response = await fetch(`/admin/delete-user/${id}`, {
+        method: 'delete'
+      });
+      if(response.ok){
+        window.location.reload();
+      }
+
+      if(response.status == 400){
+        const data = await response.json();
+        alert(data.message);
+      }
+      
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+</script>
+
+<%- contentFor('tabulatorCSS') %>
+
+<link href="https://unpkg.com/tabulator-tables@6.0.0/dist/css/tabulator.min.css" rel="stylesheet">
+<link href="/css/tabulator_bootstrap5.min.css" rel="stylesheet">

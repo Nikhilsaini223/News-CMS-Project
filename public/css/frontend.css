@@ -1,25 +1,53 @@
-/* Frontend combined stylesheet for all frontend views - Premium Soft & Elegant Theme */
+/* Frontend combined stylesheet for all frontend views - Modern Soft Light Theme */
 :root {
-  --primary: #4f46e5; /* elegant indigo */
-  --primary-hover: #4338ca;
-  --secondary: #0f172a; /* midnight slate */
-  --muted: #64748b; /* soft slate gray */
-  --bg: #f8fafc; /* very light cool slate bg */
-  --card: #ffffff;
-  --border: #f1f5f9; /* extremely soft border */
-  --border-dark: #cbd5e1;
-  --text-main: #334155;
-  --text-title: #0f172a;
-  --radius-lg: 16px;
-  --radius-md: 12px;
-  --radius-sm: 8px;
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md:
-    0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
-  --shadow-lg:
-    0 10px 25px -5px rgba(15, 23, 42, 0.04),
-    0 8px 10px -6px rgba(15, 23, 42, 0.02);
+  /* Accent — soft periwinkle */
+  --primary: #6B6FD4;
+  --primary-hover: #5659C0;
+  --primary-subtle: #EEF0FF;
+  --primary-muted: rgba(107, 111, 212, 0.12);
+
+  /* Surfaces — warm light */
+  --bg: #FAFAF9;
+  --card: #FFFFFF;
+  --surface: #F5F5F4;
+  --surface-hover: #EEEDEC;
+  --input-bg: #FAFAF9;
+
+  /* Text — warm stone */
+  --text-title: #1C1917;
+  --text-main: #44403C;
+  --muted: #78716C;
+
+  /* Borders */
+  --border: #F0EFEC;
+  --border-dark: #D6D3D1;
+
+  /* Semantic */
+  --success: #10B981;
+  --success-bg: #D1FAE5;
+  --success-text: #065F46;
+  --danger: #E11D48;
+  --danger-bg: #FFE4E6;
+  --warning-bg: #FEF3C7;
+  --warning-text: #92400E;
+  --info-bg: #EEF0FF;
+  --info-text: #4338CA;
+
+  /* Shape & motion */
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --shadow-sm: 0 1px 2px rgba(28, 25, 23, 0.04);
+  --shadow-md: 0 4px 12px rgba(28, 25, 23, 0.06);
+  --shadow-lg: 0 12px 32px rgba(28, 25, 23, 0.08);
+  --focus-ring: 0 0 0 4px var(--primary-muted);
+  --shadow-primary: 0 4px 12px rgba(107, 111, 212, 0.15);
+  --shadow-primary-lg: 0 6px 16px rgba(107, 111, 212, 0.25);
   --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Glass nav */
+  --nav-bg: rgba(255, 255, 255, 0.88);
+  --nav-blur: blur(16px);
 }
 
 * {
@@ -33,10 +61,12 @@ body {
     -apple-system,
     sans-serif;
   color: var(--text-main);
-  background-color: var(--bg);
-  line-height: 1.6;
+  background: linear-gradient(180deg, var(--bg) 0%, #F5F4F2 100%);
+  font-size: 15px;
+  line-height: 1.65;
   margin: 0;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "cv02", "cv03";
 }
 
 a {
@@ -64,7 +94,7 @@ h6 {
 
 /* Automatic Graceful Image Fallback for broken links */
 img {
-  background-color: #f1f5f9;
+  background-color: var(--surface);
   position: relative;
   overflow: hidden;
 }
@@ -76,7 +106,7 @@ img::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
+  background: linear-gradient(135deg, var(--surface) 0%, var(--border-dark) 100%);
   z-index: 1;
 }
 img::after {
@@ -90,14 +120,16 @@ img::after {
   left: 0;
   width: 100%;
   height: 100%;
-  color: #94a3b8;
+  color: var(--muted);
   font-size: 24px;
   z-index: 2;
 }
 
 /* Header */
 #header {
-  background: var(--card);
+  background: var(--nav-bg);
+  backdrop-filter: var(--nav-blur);
+  -webkit-backdrop-filter: var(--nav-blur);
   border-bottom: 1px solid var(--border);
   padding: 16px 0;
 }
@@ -124,15 +156,15 @@ img::after {
   border-radius: 30px;
   font-family: inherit;
   font-size: 14px;
-  background: #f8fafc;
+  background: var(--input-bg);
   transition: var(--transition);
   color: var(--text-main);
 }
 .header-search input[type="text"]:focus {
   outline: none;
   border-color: var(--primary);
-  background: #fff;
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+  background: var(--card);
+  box-shadow: var(--focus-ring);
 }
 .header-search button {
   position: absolute;
@@ -178,13 +210,13 @@ img::after {
 
 /* Menu Bar */
 #menu-bar {
-  background: var(--card);
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: var(--nav-blur);
+  -webkit-backdrop-filter: var(--nav-blur);
+  background: var(--nav-bg);
 }
 #menu-bar > div {
   max-width: 1200px;
@@ -210,7 +242,7 @@ img::after {
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 .menu li a:hover {
-  background: #f1f5f9;
+  background: var(--surface);
   color: var(--primary);
 }
 
@@ -249,7 +281,7 @@ img::after {
 .post-content:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
-  border-color: rgba(79, 70, 229, 0.12);
+  border-color: var(--primary-muted);
 }
 
 .post-img {

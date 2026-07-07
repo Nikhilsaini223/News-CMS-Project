@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+      <% if(settings.website_title && settings.website_title.trim() !== '') { %>
+        <%= settings.website_title %>
+      <% } else { %>
+        News
+      <% } %>
+    </title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header id="header" class="site-header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-4 col-md-12">
+          <% if(settings.website_logo && settings.website_logo.trim() !== '') { %>
+            <a href="/" id="logo"><img src="/uploads/<%= settings.website_logo %>" alt="Logo" /></a>
+          <% } else { %>
+            <a href="/" id="logo"><img src="/images/logo.png" alt="Logo" /></a>
+          <% } %>
+        </div>
+        <div class="col-lg-8 col-md-12">
+          <div id="menu-bar">
+            <ul class="menu">
+              <li><a href="/">Home</a></li>
+              <% categories.forEach(function(category) { %>
+                <li><a href="/category/<%- category.slug %>"><%= category.name %></a></li>
+              <% }); %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="site-main">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-12">
+          <%- body %>
+        </div>
+        <%- include('partials/sidebar') %>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <% if(settings.footer_description && settings.footer_description.trim() !== '') { %>
+            <span><%= settings.footer_description %></span>
+          <% } else { %>
+            <span>© Copyright 2026 News | Powered by Nikhil Saini</span>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!-- post-container -->
+    <div class="post-container">
+      <div class="post-content single-post">
+        <div class="article-hero">
+          <a class="article-category-pill" href="/category/<%= singleNews.category ? singleNews.category.slug : '' %>">
+            <% if (singleNews.category) { %>
+              <%= singleNews.category.name %>
+            <% } else { %>
+              Uncategorized
+            <% } %>
+          </a>
+          <h1><%= singleNews.title %></h1>
+          <div class="post-information">
+            <span>
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <% if (singleNews.author) { %>
+                <a href='/author/<%= singleNews.author._id %>'><%= singleNews.author.fullname %></a>
+              <% } else { %>
+                <span>Unknown Author</span>
+              <% } %>
+            </span>
+            <span>
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+             <%= new Date(singleNews.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' }) %>
+            </span>
+          </div>
+        </div>
+        <img class="single-feature-image" src="/uploads/<%= singleNews.image %>" alt=""/>
+        <div class="article-body">
+          <%- singleNews.content %>
+        </div>
+      </div>
+    </div>
+    <!-- /post-container -->
+
+    <div class="comments-shell">
+      <h3>Comments</h3>
+      <div class="comment-form">
+        <form action="/single/<%= singleNews._id %>/comment" method="POST">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Comment</label>
+            <textarea class="form-control" name="content" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Comment</button>
+        </form>
+      </div>
+
+      <div class="comments-list">
+        <% comments.forEach(function(comment) { %>
+        <div class="comment-card">
+          <h6><%= comment.name %></h6>
+          <p><%= comment.content %></p>
+          <small>Posted on <%= new Date(comment.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' }) %></small>
+        </div>
+        <% }); %>
+      </div>
+  </div>

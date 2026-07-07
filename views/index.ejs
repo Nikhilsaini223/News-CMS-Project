@@ -1,0 +1,14 @@
+<!-- post-container -->
+  <% const isHomeHero = paginatedNews.currentPage === 1; %>
+  <div class="post-container <%= isHomeHero ? 'post-container--home' : '' %>">
+    <% if (isHomeHero) { %>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Editorial</p>
+          <h2>Latest Stories</h2>
+        </div>
+      </div>
+    <% } %>
+    <%- include('partials/loop') %>
+  </div>
+  <!-- /post-container -->

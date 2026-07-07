@@ -1,39 +1,34 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
-/* This code imports (destructures) specific controller 
-functions from siteController.js so they can be used 
-directly in your route definitions without writing siteController.functionName each time.*/
+const siteController = require('../controllers/siteController');
+const loadCommonData = require('../middleware/loadCommonData');
 
-//import Method -1
-/*const {
-    index,
-    articleByCategories,
-    singleArticle,
-    search,
-    author,
-    addComment
-} = require('../controllers/siteController');*/
+router.use(loadCommonData);
 
-
-/*This line imports the siteController module — a file 
-containing functions (likely for handling site-related routes, 
-like rendering pages, settings, or general site logic)
-— from ../controllers/siteController, so this file can use those functions.*/
-
-//import Method -2
-const siteController = require('../controller/siteController');
-
-
-/* These route definitions map incoming HTTP requests (URLs) 
-to their respective controller functions,
- which handle the request and return the appropriate response.*/
-
- router.get('/', siteController.index);
+router.get('/', siteController.index);
 router.get('/category/:name', siteController.articleByCategories);
 router.get('/single/:id', siteController.singleArticle);
 router.get('/search', siteController.search);
 router.get('/author/:name', siteController.author);
-router.post('/single/:id', siteController.addComment);
+router.post('/single/:id/comment', siteController.addComment);
+
+// 404 Middleware
+router.use((req, res, next) => { 
+  res.status(404).render('404',{
+    message: 'Page not found'
+  })
+});
+
+// 500 Error Handler
+router.use((err, req, res, next) => { 
+  console.error(err.stack);
+  const status = err.status || 500;
+  
+  res.status(status).render('errors',{
+    message: err.message || 'Something went wrong',
+    status
+  })
+});
 
 module.exports = router;

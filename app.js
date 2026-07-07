@@ -1,51 +1,36 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const mongoose = require("mongoose");
-const path = require("path");
-const expressLayouts = require("express-ejs-layouts");
-const expressSession = require("express-session");
-const cookieParser = require("cookie-parser");
-const connectFlash = require("connect-flash");
-const expressValidator = require("express-validator");
+const mongoose = require('mongoose');
+const path = require('path');
+const expressLayouts = require('express-ejs-layouts');
+const cookieParser = require('cookie-parser');
+const flash = require('connect-flash');
+require('dotenv').config();
 
-require("dotenv").config();
-
-//MIDDLEWARES
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+// Middleware
+app.use(express.json({limit: '10mb'}));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 app.use(expressLayouts);
-app.set("layout", "frontend/layout");
+app.set('layout','layout')
 
-//VIEW ENGINE
-app.set("view engine", "ejs");
+// View Engine
+app.set('view engine', 'ejs');
 
-//DATABASE CONNECTION
-mongoose.connect(process.env.MONGODB_URI);
+//Database Connection
+mongoose.connect(process.env.MONGODB_URI)
 
-app.use(
-  expressSession({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-  }),
-);
-
-app.use(connectFlash());
-
-//Routes
-app.use("/", require("./routes/frontend"));
-
-// Admin layout Routes
-app.use("/admin", (req, res, next) => {
-  res.locals.layout = "admin/layout";
+// Routes
+app.use('/admin',(req, res, next) =>{
+  res.locals.layout ='admin/layout';
   next();
-});
+})
+app.use('/admin', require('./routes/admin'));
 
-// Admin Routes
-app.use("/admin", require("./routes/admin"));
+app.use('/', require('./routes/frontend'));
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server is running on port ${process.env.PORT}`);
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });

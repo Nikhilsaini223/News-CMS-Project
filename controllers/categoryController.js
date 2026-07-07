@@ -1,17 +1,22 @@
-const categoryModel = require("../models/category");
-const newsModel = require("../models/news");
+const categoryModel = require("../models/Category");
+const newsModel = require("../models/News");
 const createError = require("../utils/error-message");
 const { validationResult } = require("express-validator");
+const slugify = require("slugify");
 
 const allCategory = async (req, res) => {
   const categories = await categoryModel.find();
+  console.log(
+    "Categories count:",
+    Array.isArray(categories) ? categories.length : 0,
+  );
   res.render("admin/categories", { categories, role: req.role });
 };
 const addCategoryPage = async (req, res) => {
   res.render("admin/categories/create", { role: req.role, errors: 0 });
 };
 
-const addCategory = async (req, res) => {
+const addCategory = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.render("admin/categories/create", {
@@ -21,10 +26,19 @@ const addCategory = async (req, res) => {
   }
 
   try {
+    if (req.body.name) {
+      req.body.slug = slugify(req.body.name, { lower: true, strict: true });
+    }
     await categoryModel.create(req.body);
     res.redirect("/admin/category");
   } catch (error) {
-    res.status(500).send(error);
+    if (error.code === 11000) {
+      return res.render("admin/categories/create", {
+        role: req.role,
+        errors: [{ msg: "Category name already exists" }],
+      });
+    }
+    next(error);
   }
 };
 
@@ -65,12 +79,21 @@ const updateCategory = async (req, res, next) => {
     }
 
     category.name = req.body.name;
-    category.description = req.body.description;
+    if (req.body.name) {
+      category.slug = slugify(req.body.name, { lower: true, strict: true });
+    }
 
     await category.save();
     res.redirect("/admin/category");
   } catch (error) {
-    // res.status(400).send(error);
+    if (error.code === 11000) {
+      const category = await categoryModel.findById(id);
+      return res.render("admin/categories/update", {
+        category,
+        role: req.role,
+        errors: [{ msg: "Category name already exists" }],
+      });
+    }
     next(error);
   }
 };

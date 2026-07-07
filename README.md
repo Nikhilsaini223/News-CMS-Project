@@ -8,11 +8,11 @@ A clean, editorial-style MERN (MongoDB, Express, Node, EJS) news CMS focused on 
 
 Replace the placeholders in `/screenshots/` with the images you provided. They will appear here automatically.
 
-![Latest Stories screenshot](screenshots/screenshot-1.png)
+![Latest Stories screenshot](screenshots/screenshot-1.svg)
 
-![Homepage with sidebar and cards](screenshots/screenshot-2.png)
+![Homepage with sidebar and cards](screenshots/screenshot-2.svg)
 
-![Admin dashboard and menubar](screenshots/screenshot-admin.png)
+![Admin dashboard and menubar](screenshots/screenshot-admin.svg)
 
 ---
 

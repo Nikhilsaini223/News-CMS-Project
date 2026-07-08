@@ -133,8 +133,8 @@ Make sure you have the following installed:
    Create a `.env` file in the project root:
 
    ```env
-   PORT=3000
-   MONGODB_URI=mongodb://localhost:27017/news-cms
+   PORT=process.env.PORT
+   MONGODB_URI=process.env.MONGODB_URI
    JWT_SECRET=your_jwt_secret_key_here
    ```
 
